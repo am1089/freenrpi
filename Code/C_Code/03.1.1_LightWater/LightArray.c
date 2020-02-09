@@ -1,8 +1,7 @@
 /**********************************************************************
-* Filename    : LightWater.c
+* Filename    : LightArray.c
 * Description : Use LEDBar Graph(10 LED) 
-* Author      : www.freenove.com
-* modification: 2019/12/27
+* Author      : Aditya Mitra
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
