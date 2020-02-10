@@ -2,8 +2,7 @@
 #############################################################################
 # Filename    : Nightlamp.py
 # Description : Control LED with Photoresistor
-# Author      : www.freenove.com
-# modification: 2019/12/27
+# Author      : Aditya Mitra
 ########################################################################
 import RPi.GPIO as GPIO
 import smbus
@@ -33,7 +32,11 @@ def setup():
 def loop():
     while True:
         value = analogRead(0)    # read the ADC value of channel 0
-        p.ChangeDutyCycle(value*100/255)
+        #p.ChangeDutyCycle(value*100/255)
+        if (value >= 150):
+            p.ChangeDutyCycle(100)
+        else:
+            p.ChangeDutyCycle(0)
         voltage = value / 255.0 * 3.3
         print ('ADC Value : %d, Voltage : %.2f'%(value,voltage))
         time.sleep(0.01)
