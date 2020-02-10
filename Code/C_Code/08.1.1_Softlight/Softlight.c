@@ -30,7 +30,8 @@ int main(void){
 	
 	while(1){
 		value = analogRead(A0);  //read analog value of A0 pin
-		softPwmWrite(ledPin,value*100/255);
+		// Max will now make LED dim, min will make LED bright
+		softPwmWrite(ledPin,(255 - value)*100/255);
 		voltage = (float)value / 255.0 * 3.3;  // calculate voltage
 		printf("ADC value : %d  ,\tVoltage : %.2fV\n",value,voltage);
 		delay(100);
